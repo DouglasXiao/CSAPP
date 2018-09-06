@@ -1,7 +1,7 @@
 uremdiv:
 	movq %rdx, %r8   #copy qp
 	movq %rdi, %rax  #move x to lower 8 bytes of dividend
-	cqto             #sign extend %rax, and copy to uppper 8 bytes of dividend %rdx
+	movl $0, %edx    #sign extend %rax, and copy to uppper 8 bytes of dividend %rdx
 	divq %rsi        #y in rsi
 	movq %rax, (%r8) #store quotient
 	movq %rdx, (%rcx)#store remainder
